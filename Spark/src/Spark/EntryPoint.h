@@ -1,5 +1,4 @@
 #pragma once
-
 #ifdef SK_PLATFORM_WINDOWS
 
 extern Spark::Application* Spark::CreateApplication();

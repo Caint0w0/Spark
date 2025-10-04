@@ -1,11 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Spark">
       <UniqueIdentifier>{26081C0E-921C-44BF-5B9E-E71EC77140F0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Spark\Events">
+      <UniqueIdentifier>{4A4D7E82-36B0-0D27-DF35-46DDCB77D9A9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Spark.h" />
     <ClInclude Include="src\Spark\Application.h">
       <Filter>Spark</Filter>
@@ -16,16 +28,36 @@
     <ClInclude Include="src\Spark\EntryPoint.h">
       <Filter>Spark</Filter>
     </ClInclude>
+    <ClInclude Include="src\Spark\Events\ApplicationEvent.h">
+      <Filter>Spark\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Spark\Events\Event.h">
+      <Filter>Spark\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Spark\Events\KeyEvent.h">
+      <Filter>Spark\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Spark\Events\MouseEvent.h">
+      <Filter>Spark\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Spark\Log.h">
       <Filter>Spark</Filter>
     </ClInclude>
+    <ClInclude Include="src\Spark\Window.h">
+      <Filter>Spark</Filter>
+    </ClInclude>
+    <ClInclude Include="src\skpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\Spark\Application.cpp">
       <Filter>Spark</Filter>
     </ClCompile>
     <ClCompile Include="src\Spark\Log.cpp">
       <Filter>Spark</Filter>
     </ClCompile>
+    <ClCompile Include="src\skpch.cpp" />
   </ItemGroup>
 </Project>

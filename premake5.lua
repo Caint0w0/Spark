@@ -10,29 +10,47 @@ workspace "Spark"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Spark/vendor/GLFW/include"
+
+include "Spark/vendor/GLFW"
+
 project "Spark"
 	location "Spark"
 	kind "SharedLib"
 	language "C++"
 
+
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "skpch.h"
+	pchsource "Spark/src/skpch.cpp"
 
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/src/**.cpp"
 	}
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
-		cppdialect "C++20"
-		staticruntime "On"
-		systemversion "10.0.22621.0"
+		cppdialect "C++17"
+		staticruntime "off"
+		systemversion "latest"
 
 		defines
 		{
@@ -57,9 +75,6 @@ project "Spark"
 		defines "SK_DIST"
 		optimize "On"
 
-	--filter {"system:windows","configurations:Debug","configurations:Release","configurations:Dist"}
-		--buildoptions "/utf-8"
-		-- 为MSVC编译器添加/utf-8选项
     filter "toolset:msc*"
        buildoptions { "/utf-8" }
 
@@ -89,9 +104,9 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++20"
+		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0.22621.0"
+		systemversion "latest"
 
 		defines
 		{
@@ -110,8 +125,5 @@ project "Sandbox"
 		defines "SK_DIST"
 		optimize "On"
 
-	--filter {"system:windows","configurations:Debug","configurations:Release","configurations:Dist"}
-		--buildoptions "/utf-8"
-		-- 为MSVC编译器添加/utf-8选项
 	filter "toolset:msc*"
 		buildoptions { "/utf-8" }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+#include "Window.h"
 
 namespace Spark {
 	class SPARK_API Application
@@ -9,7 +10,10 @@ namespace Spark {
 		Application();
 		virtual ~Application();
 
-		virtual void Run();
+		void Run();
+	private:
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
 	};
 
 	// To be defined in CLIENT
