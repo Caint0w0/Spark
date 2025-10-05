@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Spark/vendor/GLFW/include"
+IncludeDir["Glad"] = "Spark/vendor/Glad/include"
 
 include "Spark/vendor/GLFW"
+include "Spark/vendor/Glad"
 
 project "Spark"
 	location "Spark"
@@ -38,12 +40,14 @@ project "Spark"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -55,7 +59,8 @@ project "Spark"
 		defines
 		{
 			"SK_PLATFORM_WINDOWS",
-			"SK_BUILD_DLL"
+			"SK_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

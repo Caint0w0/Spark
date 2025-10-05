@@ -7,6 +7,7 @@
 #include "Spark/Events/MouseEvent.h"
 #include "Spark/Events/KeyEvent.h"
 
+#include <glad/glad.h>
 
 namespace Spark {
 	
@@ -52,7 +53,10 @@ namespace Spark {
 
 		
 		glfwMakeContextCurrent(m_Window);
-
+		//-- Handle glad --
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		SK_CORE_ASSERT(status, "Failed to initialize Glad !");
+		//-----------------
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 

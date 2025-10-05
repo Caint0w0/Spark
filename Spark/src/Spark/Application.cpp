@@ -2,7 +2,7 @@
 #include "Application.h"
 
 //#include <chrono>
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 namespace Spark {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -10,6 +10,9 @@ namespace Spark {
 	{
 		m_Window =std::unique_ptr<Window>(Window::Create(WindowProps()));
 		m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
+
+		unsigned int id;
+		glGenVertexArrays(1, &id);
 	}
 
 	Application::~Application()
