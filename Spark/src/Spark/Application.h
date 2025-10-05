@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Window.h"
+#include "Events/ApplicationEvent.h"
 
 namespace Spark {
 	class SPARK_API Application
@@ -11,7 +12,12 @@ namespace Spark {
 		virtual ~Application();
 
 		void Run();
+
+		void OnEvent(Event& e);
+		bool OnWindowResize(WindowResizeEvent& e);
 	private:
+
+		bool OnWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 	};

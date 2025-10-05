@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Spark/Log.h"
+
 #ifdef SK_PLATFORM_WINDOWS //如果是Windows平台
 	#include <Windows.h>
 #endif 
