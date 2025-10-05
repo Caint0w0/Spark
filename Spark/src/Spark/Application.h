@@ -4,6 +4,8 @@
 #include "Window.h"
 #include "Events/ApplicationEvent.h"
 
+#include "Spark/LayerStack.h"
+
 namespace Spark {
 	class SPARK_API Application
 	{
@@ -13,13 +15,20 @@ namespace Spark {
 
 		void Run();
 
-		void OnEvent(Event& e);
-		bool OnWindowResize(WindowResizeEvent& e);
-	private:
+		void Tick();
 
+		void OnEvent(Event& e);
+		
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
+
+	private:
+		bool OnWindowResize(WindowResizeEvent& e);
 		bool OnWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+
+		LayerStack m_LayerStack;
 	};
 
 	// To be defined in CLIENT

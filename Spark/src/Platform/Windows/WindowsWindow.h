@@ -5,7 +5,7 @@
 
 namespace Spark {
 
-	class WindowsWindow : public Window
+	class SPARK_API WindowsWindow : public Window
 	{
 	public:
 		WindowsWindow(const WindowProps& props);

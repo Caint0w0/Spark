@@ -40,6 +40,12 @@
     <ClInclude Include="src\Spark\Events\MouseEvent.h">
       <Filter>Spark\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Spark\Layer.h">
+      <Filter>Spark</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Spark\LayerStack.h">
+      <Filter>Spark</Filter>
+    </ClInclude>
     <ClInclude Include="src\Spark\Log.h">
       <Filter>Spark</Filter>
     </ClInclude>
@@ -53,6 +59,12 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Spark\Application.cpp">
+      <Filter>Spark</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Spark\Layer.cpp">
+      <Filter>Spark</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Spark\LayerStack.cpp">
       <Filter>Spark</Filter>
     </ClCompile>
     <ClCompile Include="src\Spark\Log.cpp">

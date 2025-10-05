@@ -22,7 +22,7 @@ namespace Spark {
 	};
 
 	// Interface representing a desktop system based Window
-	class  Window
+	class SPARK_API Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
