@@ -21,6 +21,7 @@ class Sandbox : public Spark::Application {
 public:
 	Sandbox() {
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Spark::ImGuiLayer());
 	}
 
 	~Sandbox() {
