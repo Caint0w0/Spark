@@ -1,6 +1,7 @@
 workspace "Spark"
 	architecture "x64"
-
+	startproject "Sandbox"
+	
 	configurations
 	{
 		"Debug",
@@ -24,6 +25,7 @@ project "Spark"
 	location "Spark"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -57,7 +59,6 @@ project "Spark"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "off"
 		systemversion "latest"
 
 		defines
@@ -69,22 +70,22 @@ project "Spark"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
 		defines "SK_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "SK_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "SK_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
     filter "toolset:msc*"
@@ -94,6 +95,7 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -117,7 +119,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -127,17 +128,17 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "SK_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "SK_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "SK_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "toolset:msc*"
