@@ -166,11 +166,13 @@
     <ClInclude Include="src\Spark\Events\KeyEvent.h" />
     <ClInclude Include="src\Spark\Events\MouseEvent.h" />
     <ClInclude Include="src\Spark\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Spark\Input.h" />
     <ClInclude Include="src\Spark\Layer.h" />
     <ClInclude Include="src\Spark\LayerStack.h" />
     <ClInclude Include="src\Spark\Log.h" />
     <ClInclude Include="src\Spark\Window.h" />
     <ClInclude Include="src\skpch.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
@@ -183,6 +185,7 @@
     <ClCompile Include="src\skpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
