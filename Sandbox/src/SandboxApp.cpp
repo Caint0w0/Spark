@@ -1,6 +1,6 @@
 #include <Spark.h>
 
-#include <stdio.h>
+#include "imgui/imgui.h"
 
 class ExampleLayer : public Spark::Layer {
 public:
@@ -15,6 +15,14 @@ public:
 			SK_TRACE("Tab key is pressed (poll)!");
 	}
 
+	virtual void OnImGuiRender() override
+	{
+		/*ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();*/
+	}
+
+
 	void OnEvent(Spark::Event& event) override {
 		//SK_TRACE("{0}", event);
 		if (event.GetEventType() == Spark::EventType::KeyPressed)
@@ -26,13 +34,12 @@ public:
 		}
 	}
 };
+
 class Sandbox : public Spark::Application {
 public:
 	Sandbox() {
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Spark::ImGuiLayer());
 	}
-
 	~Sandbox() {
 
 	}

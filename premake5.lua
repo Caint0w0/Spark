@@ -18,16 +18,21 @@ IncludeDir["Glad"] = "Spark/vendor/Glad/include"
 IncludeDir["ImGui"] = "Spark/vendor/imgui"
 IncludeDir["glm"] = "Spark/vendor/glm"
 
-include "Spark/vendor/GLFW"
-include "Spark/vendor/Glad"
-include "Spark/vendor/imgui"
+
+group "Dependencies"
+	include "Spark/vendor/GLFW"
+	include "Spark/vendor/Glad"
+	include "Spark/vendor/imgui"
+
+group ""
 
 project "Spark"
 	location "Spark"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
-
+	
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -41,6 +46,11 @@ project "Spark"
 		"%{prj.name}/src/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs
@@ -62,7 +72,6 @@ project "Spark"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
@@ -72,25 +81,21 @@ project "Spark"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
-		}
 
 	filter "configurations:Debug"
 		defines "SK_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "SK_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "SK_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
     filter "toolset:msc*"
        buildoptions { "/utf-8" }
@@ -99,7 +104,9 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -114,6 +121,7 @@ project "Sandbox"
 	{
 		"Spark/vendor/spdlog/include",
 		"Spark/src",
+		"Spark/vendor",
 		"%{IncludeDir.glm}"
 	}
 
@@ -123,7 +131,6 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
@@ -134,17 +141,17 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "SK_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "SK_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "SK_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "toolset:msc*"
 		buildoptions { "/utf-8" }

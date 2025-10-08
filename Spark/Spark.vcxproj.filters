@@ -22,6 +22,9 @@
     <Filter Include="src\Spark\ImGui">
       <UniqueIdentifier>{67B509FD-D340-77C1-DC51-FAB5485CD3C1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Spark\Renderer">
+      <UniqueIdentifier>{C3F62570-AFDA-E6C5-183B-E118043ED147}</UniqueIdentifier>
+    </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
     </Filter>
@@ -45,7 +48,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
@@ -98,6 +101,9 @@
     </ClInclude>
     <ClInclude Include="src\Spark\MouseButtonCodes.h">
       <Filter>src\Spark</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Spark\Renderer\GraphicsContext.h">
+      <Filter>src\Spark\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Spark\Window.h">
       <Filter>src\Spark</Filter>
@@ -1365,9 +1371,10 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Spark\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -1378,6 +1385,9 @@
     </ClCompile>
     <ClCompile Include="src\Spark\Application.cpp">
       <Filter>src\Spark</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Spark\ImGui\ImGuiBuild.cpp">
+      <Filter>src\Spark\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Spark\ImGui\ImGuiLayer.cpp">
       <Filter>src\Spark\ImGui</Filter>
@@ -1394,5 +1404,6 @@
     <ClCompile Include="src\skpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Spark\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>
