@@ -30,11 +30,11 @@ namespace Spark {
 #define SK_CORE_INFO(...)  ::Spark::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define SK_CORE_WARN(...)  ::Spark::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define SK_CORE_ERROR(...) ::Spark::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define SK_CORE_FATAL(...) ::Spark::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define SK_CORE_FATAL(...) ::Spark::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 //Client log macros
 #define SK_TRACE(...)	   ::Spark::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define SK_INFO(...)       ::Spark::Log::GetClientLogger()->info(__VA_ARGS__)
 #define SK_WARN(...)       ::Spark::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define SK_ERROR(...)      ::Spark::Log::GetClientLogger()->error(__VA_ARGS__)
-#define SK_FATAL(...)      ::Spark::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define SK_FATAL(...)      ::Spark::Log::GetClientLogger()->critical(__VA_ARGS__)

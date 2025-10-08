@@ -97,8 +97,8 @@ project "Spark"
 		runtime "Release"
 		optimize "on"
 
-    filter "toolset:msc*"
-       buildoptions { "/utf-8" }
+    --filter "toolset:msc*"
+       --buildoptions { "/utf-8" }
 
 project "Sandbox"
 	location "Sandbox"
@@ -153,5 +153,5 @@ project "Sandbox"
 		runtime "Release"
 		optimize "on"
 
-	filter "toolset:msc*"
-		buildoptions { "/utf-8" }
+	--filter "toolset:msc*"
+		--buildoptions { "/utf-8" }

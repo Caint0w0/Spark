@@ -105,6 +105,9 @@
     <ClInclude Include="src\Spark\Renderer\GraphicsContext.h">
       <Filter>src\Spark\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Spark\Renderer\Shader.h">
+      <Filter>src\Spark\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Spark\Window.h">
       <Filter>src\Spark</Filter>
     </ClInclude>
@@ -1371,7 +1374,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Spark\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1401,9 +1403,11 @@
     <ClCompile Include="src\Spark\Log.cpp">
       <Filter>src\Spark</Filter>
     </ClCompile>
+    <ClCompile Include="src\Spark\Renderer\Shader.cpp">
+      <Filter>src\Spark\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\skpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Spark\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>
