@@ -8,6 +8,8 @@
 #include "Spark/ImGui/ImGuiLayer.h"
 
 #include "Spark/Renderer/Shader.h"
+#include "Spark/Renderer/Buffer.h"
+#include "Spark/Renderer/VertexArray.h"
 namespace Spark {
 	class SPARK_API Application
 	{
@@ -36,8 +38,11 @@ namespace Spark {
 
 		LayerStack m_LayerStack;
 
-		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
-		std::unique_ptr<Shader> m_Shader;
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArray> m_VertexArray;
+
+		std::shared_ptr<Shader> m_BlueShader;
+		std::shared_ptr<VertexArray> m_SquareVA;
 	private:
 		static Application* s_Instance;
 	};

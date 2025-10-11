@@ -143,7 +143,9 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Spark.h" />
@@ -161,8 +163,11 @@
     <ClInclude Include="src\Spark\LayerStack.h" />
     <ClInclude Include="src\Spark\Log.h" />
     <ClInclude Include="src\Spark\MouseButtonCodes.h" />
+    <ClInclude Include="src\Spark\Renderer\Buffer.h" />
     <ClInclude Include="src\Spark\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Spark\Renderer\Renderer.h" />
     <ClInclude Include="src\Spark\Renderer\Shader.h" />
+    <ClInclude Include="src\Spark\Renderer\VertexArray.h" />
     <ClInclude Include="src\Spark\Window.h" />
     <ClInclude Include="src\skpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -587,7 +592,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Spark\Application.cpp" />
@@ -596,10 +603,13 @@
     <ClCompile Include="src\Spark\Layer.cpp" />
     <ClCompile Include="src\Spark\LayerStack.cpp" />
     <ClCompile Include="src\Spark\Log.cpp" />
+    <ClCompile Include="src\Spark\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Spark\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Spark\Renderer\Shader.cpp" />
     <ClCompile Include="src\skpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Spark\Renderer\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
